@@ -2,12 +2,10 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
-  "source": "src/index.html",
+  "default": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel",
-    "watch": "parcel watch",
-    "build": "parcel build"
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,11 +20,12 @@
   "dependencies": {
     "@parcel/transformer-raw": "^2.7.0",
     "parcel": "^2.7.0",
+    "parcel-bundler": "^1.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "process": "^0.11.10"
   }
 }
