@@ -33237,7 +33237,7 @@ exports.MovieView = MovieView;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MainView = void 0;
+exports.default = exports.MainView = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -33491,10 +33491,11 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return MainView;
-}(_react.default.Component); // export default MainView;
-
+}(_react.default.Component);
 
 exports.MainView = MainView;
+var _default = MainView;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","../movie-card/movie-card":"components/movie-card/movie-card.jsx","../movie-view/movie-view":"components/movie-view/movie-view.jsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
