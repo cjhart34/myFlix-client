@@ -27113,7 +27113,7 @@ class MainView extends (0, _reactDefault.default).Component {
         };
     }
     componentDidMount() {
-        (0, _axiosDefault.default).get("https://cjhart34.herokuapp.com/").then((response)=>{
+        (0, _axiosDefault.default).get("https://cjhart34.herokuapp.com/movies").then((response)=>{
             this.setState({
                 movies: response.data
             });
