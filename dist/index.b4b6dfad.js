@@ -27109,7 +27109,9 @@ class MainView extends (0, _reactDefault.default).Component {
         //Initial state is set to null
         this.state = {
             movies: [],
-            selectedMovie: null
+            selectedMovie: null,
+            user: null,
+            registered: null
         };
     }
     componentDidMount() {
@@ -27142,14 +27144,14 @@ class MainView extends (0, _reactDefault.default).Component {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 56,
+            lineNumber: 58,
             columnNumber: 23
         }, this);
         if (!registered) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationView.RegistrationView), {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 58,
+            lineNumber: 60,
             columnNumber: 29
         }, this);
         if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27159,14 +27161,14 @@ class MainView extends (0, _reactDefault.default).Component {
             }
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 60,
+            lineNumber: 62,
             columnNumber: 31
         }, this);
         if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 62,
+            lineNumber: 64,
             columnNumber: 37
         }, this);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27178,7 +27180,7 @@ class MainView extends (0, _reactDefault.default).Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 67,
+                lineNumber: 69,
                 columnNumber: 13
             }, this) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                     movie: movie,
@@ -27187,12 +27189,12 @@ class MainView extends (0, _reactDefault.default).Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 69,
+                    lineNumber: 71,
                     columnNumber: 13
                 }, this))
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 65,
+            lineNumber: 67,
             columnNumber: 7
         }, this);
     }
@@ -31239,6 +31241,13 @@ function LoginView(props) {
 }
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
+LoginView.PropTypes = {
+    user: (0, _propTypesDefault.default).shape({
+        username: (0, _propTypesDefault.default).string.isRequired,
+        password: (0, _propTypesDefault.default).string.isRequired
+    }),
+    onLoggedIn: (0, _propTypesDefault.default).func.isRequired
+};
 var _c;
 $RefreshReg$(_c, "LoginView");
 

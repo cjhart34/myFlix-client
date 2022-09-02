@@ -16,7 +16,9 @@ export class MainView extends React.Component {
     //Initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null,
+      registered: null
     };
   }
 
