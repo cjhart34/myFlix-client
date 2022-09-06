@@ -21,9 +21,9 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Container fluid className='movieViewContainer'>
+      <Container fluid className='movieViewContainer justify-content-md-center'>
         <Row>
-          <Col className='movieImage'>
+          <Col className='movieImage justify-content-md-center'>
             <img src={movie.ImagePath} />
           </Col>
         </Row>

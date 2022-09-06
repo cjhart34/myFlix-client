@@ -31257,7 +31257,7 @@ function LoginView(props) {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                                            controlId: "formPasswrod",
+                                            controlId: "formPassword",
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                                     children: "Password:"
@@ -31333,7 +31333,7 @@ function LoginView(props) {
 }
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
-LoginView.PropTypes = {
+LoginView.propTypes = {
     user: (0, _propTypesDefault.default).shape({
         username: (0, _propTypesDefault.default).string.isRequired,
         password: (0, _propTypesDefault.default).string.isRequired
@@ -33802,11 +33802,11 @@ class MovieView extends (0, _reactDefault.default).Component {
         const { movie , onBackClick  } = this.props;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
             fluid: true,
-            className: "movieViewContainer",
+            className: "movieViewContainer justify-content-md-center",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                        className: "movieImage",
+                        className: "movieImage justify-content-md-center",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: movie.ImagePath
                         }, void 0, false, {
@@ -34027,22 +34027,24 @@ function RegistrationView(props) {
     const [birthday, setBirthday] = (0, _react.useState)("");
     const handleSubmit = (e)=>{
         e.preventDefault();
-        (0, _axiosDefault.default).post("https://cjhart34.herokuapp.com/users", {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        }).then((response)=>{
-            const data = response.data;
-            console.log(data);
-            window.open("/", "_self");
-        //The argument '_self' is necessary so that the page will open in the current tab
-        }).catch((e)=>{
-            console.log("error registering the user");
-            alert("Something wasn't entered correctly");
-        });
-    // console.log(username, password, email, birthday);
-    // props.onRegistration(username);
+        // axios.post('https://cjhart34.herokuapp.com/users', {
+        //   Username: username,
+        //   Password: password,
+        //   Email: email,
+        //   Birthday: birthday
+        // })
+        //   .then(response => {
+        //     const data = response.data;
+        //     console.log(data);
+        //     window.open('/', '_self');
+        //     //The argument '_self' is necessary so that the page will open in the current tab
+        //   })
+        //   .catch(e => {
+        //     console.log('error registering the user');
+        //     alert('Something wasn\'t entered correctly');
+        //   });
+        console.log(username, password, email, birthday);
+        props.onRegistration(username);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         fluid: true,
@@ -34092,7 +34094,7 @@ function RegistrationView(props) {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                                            className: "mb-3 mx-auto mt-4",
+                                            className: "my-3",
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                                     children: "Password:"

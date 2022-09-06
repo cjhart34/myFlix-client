@@ -12,24 +12,24 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://cjhart34.herokuapp.com/users', {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    })
-      .then(response => {
-        const data = response.data;
-        console.log(data);
-        window.open('/', '_self');
-        //The argument '_self' is necessary so that the page will open in the current tab
-      })
-      .catch(e => {
-        console.log('error registering the user');
-        alert('Something wasn\'t entered correctly');
-      });
-    // console.log(username, password, email, birthday);
-    // props.onRegistration(username);
+    // axios.post('https://cjhart34.herokuapp.com/users', {
+    //   Username: username,
+    //   Password: password,
+    //   Email: email,
+    //   Birthday: birthday
+    // })
+    //   .then(response => {
+    //     const data = response.data;
+    //     console.log(data);
+    //     window.open('/', '_self');
+    //     //The argument '_self' is necessary so that the page will open in the current tab
+    //   })
+    //   .catch(e => {
+    //     console.log('error registering the user');
+    //     alert('Something wasn\'t entered correctly');
+    //   });
+    console.log(username, password, email, birthday);
+    props.onRegistration(username);
   };
 
   return (
@@ -52,7 +52,7 @@ export function RegistrationView(props) {
                     />
                   </Form.Group>
 
-                  <Form.Group className='mb-3 mx-auto mt-4'>
+                  <Form.Group className='my-3'>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type='password'

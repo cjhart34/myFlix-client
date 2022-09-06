@@ -56,7 +56,7 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie, user, registered } = this.state;
 
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     if (!registered) return <RegistrationView onRegistration={(register) => this.onRegistration(register)} />;
 
@@ -75,7 +75,7 @@ export class MainView extends React.Component {
             )
             : movies.map(movie => (
               <Col lg={3} md={4} sm={6}>
-                <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+                <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
             ))
           }
