@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import props from 'prop-types';
+import propTypes from 'prop-types';
 import './main-view.scss';
 import { Container, Col, Row, Form, Button } from 'react-bootstrap';
 
