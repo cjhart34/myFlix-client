@@ -50,10 +50,6 @@ export function LoginView(props) {
           console.log('no such user')
         });
     }
-    // console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username), which provides the username to our parent component */
-    // props.onLoggedIn(username);
   };
 
   return (

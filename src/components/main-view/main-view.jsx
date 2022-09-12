@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './main-view.scss';
+import PropTypes from 'prop-types';
 import { Container, Col, Row, Form, Button, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 
@@ -76,12 +77,6 @@ export default class MainView extends React.Component {
     window.open('/', '_self');
   }
 
-  // onRegistration(registered) {
-  //   this.setState({
-  //     registered
-  //   });
-  // }
-
   render() {
     const { movies, user } = this.state;
 
@@ -92,7 +87,7 @@ export default class MainView extends React.Component {
           <Routes>
             <Route
               exact
-              path="/"
+              path="/" element={<LoginView />}
               render={() => {
                 if (!user)
                   return (
@@ -113,7 +108,7 @@ export default class MainView extends React.Component {
             />
 
             <Route
-              path="/register"
+              path="/register" element={<RegistrationView />}
               render={() => {
                 if (user) return <Redirect to="/" />;
                 return (
@@ -228,32 +223,3 @@ export default class MainView extends React.Component {
     );
   }
 }
-//     if (!user) return <Row>
-//       <Col>
-//         <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-//       </Col>
-//     </Row>
-//     if (movies.length === 0) return <div className="main-view" />;
-
-//     return (
-//       <Router>
-//         <Row className="main-view justify-content-md-center">
-//           <Routes>
-//             <Route exact path="/" render={() => {
-//               return movies.map(m => (
-//                 <Col md={3} key={m._id}>
-//                   <MovieCard movie={m} />
-//                 </Col>
-//               ))
-//             }} />
-//             <Route path="/movies/:movieId" render={({ match }) => {
-//               return <Col md={8}>
-//                 <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
-//               </Col>
-//             }} />
-//           </Routes>
-//         </Row>
-//       </Router>
-//     );
-//   }
-// }
