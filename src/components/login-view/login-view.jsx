@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Card, CardGroup, Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Col, Row, Form, Button, Card } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './login-view.scss';
 
@@ -46,38 +47,55 @@ export function LoginView(props) {
           const data = response.data;
           props.onLoggedIn(data);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log('no such user')
         });
     }
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-        {/* code added here to display validation error */}
-        {usernameErr && <p>{usernameErr}</p>}
-      </Form.Group>
+    <Router>
+      <Container className="py-5 login-container">
+        <Row>
+          <Col>
+            <Card>
+              <Card.Body>
+                <Card.Title className="text-center">Welcome to myFlix!</Card.Title>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        {/* code added here to display validation error */}
-        {passwordErr && <p>{passwordErr}</p>}
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
-  )
+                <Form>
+                  <Form.Group className="form-group">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      onChange={e => setUsername(e.target.value)}
+                      placeholder="Enter Username"
+                      required minLength="3" />
+                    {usernameErr && (<p>{usernameErr}</p>)}
+                  </Form.Group>
+
+                  <Form.Group className="form-group">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control
+                      type="password"
+                      onChange={e => setPassword(e.target.value)}
+                      placeholder="Password must be at least 6 characters"
+                      required minLength="6" />
+                    {passwordErr && (<p>{passwordErr}</p>)}
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit" onClick={handleSubmit}>
+                    Sign in
+                  </Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </Router>
+  );
 }
 
 LoginView.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired
-  }),
   onLoggedIn: PropTypes.func.isRequired
 };
