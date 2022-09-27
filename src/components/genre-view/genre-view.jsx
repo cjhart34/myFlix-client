@@ -1,7 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { Button, Container, Card, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Button, Container, Card } from 'react-bootstrap';
 import './genre-view.scss';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export class GenreView extends React.Component {
 
@@ -10,35 +11,37 @@ export class GenreView extends React.Component {
     const { genre, onBackClick } = this.props;
 
     return (
-      <Container className='my-3'>
-        <Card className='my-3 genre-card'>
-          <Card.Body>
+      <Router>
+        <Container className='my-3'>
+          <Card className='my-3 genre-card'>
+            <Card.Body>
 
-            <Card.Title>Genre</Card.Title>
+              <Card.Title>Genre</Card.Title>
 
-            <Card.Text>
-              <span className='label'>Name: </span>
-              <span className='value'>{genres.Name}</span>
-            </Card.Text>
+              <Card.Text>
+                <span className='label'>Name: </span>
+                <span className='value'>{genre.Name}</span>
+              </Card.Text>
 
-            <Card.Text>
-              <span className='label'>Description: </span>
-              <span className='value'>{genre.Description}</span>
-            </Card.Text>
+              <Card.Text>
+                <span className='label'>Description: </span>
+                <span className='value'>{genre.Description}</span>
+              </Card.Text>
 
-          </Card.Body>
-        </Card>
+            </Card.Body>
+          </Card>
 
-        <Button variant='primary' onClick={() => { onBackClick(); }}>Back</Button>
+          <Button variant='primary' onClick={() => { onBackClick(); }}>Back</Button>
 
-      </Container>
+        </Container>
+      </Router>
     );
   }
 }
 
-// GenreView.proptypes = {
-//   Genre: PropTypes.shape({
-//     Name: PropTypes.string.isRequired,
-//     Description: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
+GenreView.proptypes = {
+  genre: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+  }).isRequired,
+};

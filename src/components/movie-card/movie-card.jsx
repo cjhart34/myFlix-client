@@ -9,11 +9,11 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      <Container className="card-container">
-        <Card className="my-3 movie-card">
+      <Container className='card-container'>
+        <Card className='my-3 movie-card'>
           <Link to={`/movies/${movie._id}`}>
             <Card.Img
-              crossOrigin=""
+              crossOrigin=''
               src={movie.ImagePath} />
             <Card.Body>
               <Card.Title>{movie.Title}</Card.Title>
@@ -36,7 +36,7 @@ MovieCard.propTypes = {
     }),
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired
+      Description: PropTypes.string.isRequired
     })
   }).isRequired
 };

@@ -72,7 +72,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, director, genre } = this.state;
+    let { movies, user, director, Director } = this.state;
+    let localUser = localStorage.getItem('user');
 
     return (
 
@@ -106,7 +107,7 @@ export class MainView extends React.Component {
             <Route path='/movies/:movieId' render={({ match, history }) => {
               return <Col md={6}>
                 <MovieView
-                  movie={movies.find(m => m._id === match.params.movieId)}
+                  movie={movies.find(movie => movie._id === match.params.movieId)}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />
@@ -118,18 +119,18 @@ export class MainView extends React.Component {
               </Col>
             }} />
 
-            <Route path='/directors/:Name' render={({ match, history }) => {
-              return <Col md={8}>
+            <Route path='/directors/:name' render={({ match, history }) => {
+              return <Col md={10}>
                 <DirectorView
-                  director={movies.find(m => m.director.Name === match.params.name)}
+                  director={movies.find((movie) => movie.Director.Name === match.params.name).Director}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
             <Route path='/genres/:Name' render={({ match, history }) => {
-              return <Col md={8}>
+              return <Col md={10}>
                 <GenreView
-                  genre={movies.find(m => m.Genre.name === match.params.name)}
+                  genre={movies.find((movie) => movie.Genre.name === match.params.name).Genre}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />
