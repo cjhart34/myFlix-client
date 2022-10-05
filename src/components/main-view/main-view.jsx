@@ -72,7 +72,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { movies, user, director, Director } = this.state;
+    let { movies, user, director, Director, genre, genres } = this.state;
     let localUser = localStorage.getItem('user');
 
     return (
@@ -127,10 +127,10 @@ export class MainView extends React.Component {
               </Col>
             }} />
 
-            <Route path='/genres/:Name' render={({ match, history }) => {
+            <Route path='/genres/:name' render={({ match, history }) => {
               return <Col md={10}>
                 <GenreView
-                  genre={movies.find((movie) => movie.Genre.name === match.params.name).Genre}
+                  genre={movies.find((movie) => movie.Genre.Name === match.params.name).Genre}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />

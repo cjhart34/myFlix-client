@@ -52,66 +52,63 @@ export class ProfileView extends React.Component {
       });
   };
 
-  // editUser = (e) => {
-  //   e.preventDefault();
-  //   const Username = localStorage.getItem('user');
-  //   const token = localStorage.getItem('token');
+  updateUser = (e) => {
+    e.preventDefault();
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
 
-  //   axios
-  //     .put(
-  //       `https://cjhart34.herokuapp.com/users/${Username}`,
-  //       {
-  //         Username: this.state.Username,
-  //         Password: this.state.Password,
-  //         Email: this.state.Email,
-  //         Birthday: this.state.Birthday,
-  //       },
-  //       {
-  //         headers: { Authorization: `Bearer ${token}` },
-  //       }
-  //     )
-  //     .then((response) => {
-  //       this.setState({
-  //         Username: response.data.Username,
-  //         Password: response.data.Password,
-  //         Email: response.data.Email,
-  //         Birthday: response.data.Birthday,
-  //       });
-
-  //       localStorage.setItem('user', this.state.Username);
-  //       const data = response.data;
-  //       console.log(data);
-  //       console.log(this.state.Username);
-  //       alert('Profile is updated!');
-  //       window.open(`/users/${Username}`, '_self');
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
-  updateUser = () => {
-    let token = localStorage.getItem('token');
-    let user = localStorage.getItem("user");
-    axios.put(`https://cjhart34.herokuapp.com/users/${Username}`, {
-      Username: Username,
-      Email: email, //Email is a variable which holds the email
-      Birthday: birthday,
-      Password: password
-    },
-      {
-        headers: {
-          Authorization: 'Bearer ' + token
+    axios
+      .put(
+        `https://cjhart34.herokuapp.com/users/${Username}`,
+        {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
         }
-      }).then((response) => {
-        alert('Your profile has been updated');
-        localStorage.setItem('user', response.data.Username),
-          console.log(response.data)
-      })
-      .catch(e => {
-        console.log('Error')
+      )
+      .then((response) => {
+        this.setState({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
+        });
+
+        localStorage.setItem('user', this.state.Username);
+        const data = response.data;
+        console.log(data);
+        console.log(this.state.Username);
+        alert('Profile is updated!');
+        window.open(`/users/${Username}`, '_self');
       });
-  }
+  };
+
+  // updateUser = () => {
+  //   let token = localStorage.getItem('token');
+  //   let user = localStorage.getItem("user");
+  //   axios.put(`https://cjhart34.herokuapp.com/users/${Username}`, {
+  //     Username: Username,
+  //     Email: email, //Email is a variable which holds the email
+  //     Birthday: birthday,
+  //     Password: password
+  //   },
+  //     {
+  //       headers: {
+  //         Authorization: 'Bearer ' + token
+  //       }
+  //     }).then((response) => {
+  //       alert('Your profile has been updated');
+  //       localStorage.setItem('user', response.data.Username),
+  //         console.log(response.data)
+  //     })
+  //     .catch(e => {
+  //       console.log('Error')
+  //     });
+  // }
 
   removeFavorite(movie) {
     const Username = localStorage.getItem('user');
