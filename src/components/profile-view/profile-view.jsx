@@ -52,43 +52,66 @@ export class ProfileView extends React.Component {
       });
   };
 
-  editUser = (e) => {
-    e.preventDefault();
-    const Username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
+  // editUser = (e) => {
+  //   e.preventDefault();
+  //   const Username = localStorage.getItem('user');
+  //   const token = localStorage.getItem('token');
 
-    axios
-      .put(
-        `https://cjhart34.herokuapp.com/users/${Username}`,
-        {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
+  //   axios
+  //     .put(
+  //       `https://cjhart34.herokuapp.com/users/${Username}`,
+  //       {
+  //         Username: this.state.Username,
+  //         Password: this.state.Password,
+  //         Email: this.state.Email,
+  //         Birthday: this.state.Birthday,
+  //       },
+  //       {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       }
+  //     )
+  //     .then((response) => {
+  //       this.setState({
+  //         Username: response.data.Username,
+  //         Password: response.data.Password,
+  //         Email: response.data.Email,
+  //         Birthday: response.data.Birthday,
+  //       });
+
+  //       localStorage.setItem('user', this.state.Username);
+  //       const data = response.data;
+  //       console.log(data);
+  //       console.log(this.state.Username);
+  //       alert('Profile is updated!');
+  //       window.open(`/users/${Username}`, '_self');
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+  updateUser = () => {
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem("user");
+    axios.put(`https://cjhart34.herokuapp.com/users/${Username}`, {
+      Username: Username,
+      Email: email, //Email is a variable which holds the email
+      Birthday: birthday,
+      Password: password
+    },
+      {
+        headers: {
+          Authorization: 'Bearer ' + token
         }
-      )
-      .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
-
-        localStorage.setItem('user', this.state.Username);
-        const data = response.data;
-        console.log(data);
-        console.log(this.state.Username);
-        alert('Profile is updated!');
-        window.open(`/users/${Username}`, '_self');
+      }).then((response) => {
+        alert('Your profile has been updated');
+        localStorage.setItem('user', response.data.Username),
+          console.log(response.data)
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(e => {
+        console.log('Error')
       });
-  };
+  }
 
   removeFavorite(movie) {
     const Username = localStorage.getItem('user');
@@ -111,7 +134,8 @@ export class ProfileView extends React.Component {
   };
 
   // Deregister user
-  onDeleteUser() {
+  deleteUser() {
+    if (!confirm('Are you sure you want to delete your account?')) return;
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
@@ -176,7 +200,7 @@ export class ProfileView extends React.Component {
               <Card.Body>
                 <Card.Title>My Profile</Card.Title>
                 <Form className='update-form' onSubmit={(e) =>
-                  this.editUser(
+                  this.updateUser(
                     e,
                     this.Username,
                     this.Password,
@@ -188,8 +212,8 @@ export class ProfileView extends React.Component {
                     <Form.Label>Username</Form.Label>
                     <Form.Control
                       type='text'
-                      name='username'
-                      placeholder='New username'
+                      name='Username'
+                      placeholder='New Username'
                       value={Username}
                       onChange={(e) => this.setUsername(e.target.value)}
                       required
@@ -230,7 +254,7 @@ export class ProfileView extends React.Component {
                     />
                   </Form.Group>
                   <div className='mt-3'>
-                    <Button variant='success' type='submit' onClick={this.editUser}>Update User</Button>
+                    <Button variant='success' type='submit' onClick={this.updateUser}>Update User</Button>
                     <Button className='ml-3' variant='danger' onClick={() => this.deleteUser()}>Delete User</Button>
                   </div>
                 </Form>
