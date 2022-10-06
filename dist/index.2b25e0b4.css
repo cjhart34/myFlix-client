@@ -22,19 +22,62 @@
   font-family: Copperplate, Georgia, Times New Roman, Times, serif;
 }
 
+.registration-container {
+  font-family: Roboto, sans-serif;
+}
+
+.registration-card {
+  padding: 15px;
+}
+
+.form-group {
+  width: auto;
+  border-top: 20px;
+}
+
+.text-box {
+  width: 450px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
 * {
+  text-align: center;
+  font-size: 35px;
+}
+
+hr {
+  height: .5px;
   color: #000;
-  background-color: #d3d3d3;
-  font-family: Copperplate, Georgia, Times New Roman, Times, serif;
+  width: 90%;
+  border: 2px solid gray;
+}
+
+.navbar {
+  position: sticky;
+}
+
+.me-auto {
+  transform: translate(0, -27px);
 }
 
 
 
 
 
+.ml-3 {
+  border: 5px inset;
+}
 
+.movies-center {
+  vertical-align: auto;
+}
 
-
+.my-3 {
+  float: top;
+  place-content: center;
+  display: flex;
+}
 
 .my-flix {
   color: #4682b4;

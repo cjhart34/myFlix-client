@@ -190,12 +190,12 @@ export class ProfileView extends React.Component {
     });
 
     return (
-      <Container className='my-3 profile-view'>
+      <Container className='profile-view'>
         <Row>
           <Col>
-            <Card className='my-3 update-profile'>
+            <Card className='update-profile'>
               <Card.Body>
-                <Card.Title>My Profile</Card.Title>
+                <Card.Title>My Profile</Card.Title><br></br>
                 <Form className='update-form' onSubmit={(e) =>
                   this.updateUser(
                     e,
@@ -205,8 +205,8 @@ export class ProfileView extends React.Component {
                     this.Birthday
                   )}>
 
-                  <Form.Group className='my-3'>
-                    <Form.Label>Username</Form.Label>
+                  <Form.Group>
+                    <Form.Label>Username</Form.Label><br></br>
                     <Form.Control
                       type='text'
                       name='Username'
@@ -217,8 +217,8 @@ export class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group className='my-3'>
-                    <Form.Label>password</Form.Label>
+                  <Form.Group>
+                    <Form.Label>Password</Form.Label><br></br>
                     <Form.Control
                       type='password'
                       name='password'
@@ -229,8 +229,8 @@ export class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group className='my-3'>
-                    <Form.Label>email</Form.Label>
+                  <Form.Group>
+                    <Form.Label>Email</Form.Label><br></br>
                     <Form.Control
                       type='email'
                       name='email'
@@ -241,8 +241,8 @@ export class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group className='my-3'>
-                    <Form.Label>birthday</Form.Label>
+                  <Form.Group>
+                    <Form.Label>Birthday</Form.Label><br></br>
                     <Form.Control
                       type='full-date'
                       name='birthday'
@@ -250,8 +250,8 @@ export class ProfileView extends React.Component {
                       onChange={(e) => this.setBirthday(e.target.value)}
                     />
                   </Form.Group>
-                  <div className='mt-3'>
-                    <Button variant='success' type='submit' onClick={this.updateUser}>Update User</Button>
+                  <div className='mt-3'><br></br>
+                    <Button className='ml-3' variant='success' type='submit' onClick={this.updateUser}>Update User</Button><br></br><br></br>
                     <Button className='ml-3' variant='danger' onClick={() => this.deleteUser()}>Delete User</Button>
                   </div>
                 </Form>
@@ -268,13 +268,13 @@ export class ProfileView extends React.Component {
                 <h4 id='fm_text_color'>My Favorite Movies</h4>
               </Col>
             </Row>
+            <br></br>
 
-            <Row>
+            <Row class='movies-center'>
               {FavoriteMovies.map((movie) => {
                 return (
                   <div key={movie._id}>
-                    <Card style={{ width: '10rem' }}
-                      className='favorite-card'>
+                    <Card style={{ width: '10rem' }}>
                       <Link to={`/movies/${movie._id}`}>
                         <Card.Img
                           className='movie-card-link'
@@ -284,12 +284,12 @@ export class ProfileView extends React.Component {
                       </Link>
 
                       <Button
-                        className='remove-favorite'
+                        className='ml-3'
                         variant='danger'
                         size='sm'
                         onClick={() => this.removeFavorite(movie)}>
                         Remove
-                      </Button>
+                      </Button><br></br><br></br>
                     </Card>
                   </div>
                 );
@@ -299,7 +299,7 @@ export class ProfileView extends React.Component {
         </Card>
 
         <div>
-          <Button variant='primary' onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button className='ml-3' variant='primary' onClick={() => { onBackClick(null); }}>Back</Button>
         </div>
       </Container>
     );

@@ -253,53 +253,58 @@ export function RegistrationView(props) {
         <Row>
           <Col>
             <CardGroup>
-              <Card className="registration-card">
+              <Card className="registration-card"> <hr></hr>
 
-                <Card.Title className="text-center">Sign up here to gain access to myFlix!</Card.Title>
+                <Card.Title className="text-center">Sign up here to gain access to myFlix!</Card.Title><br></br>
 
                 <Form>
                   <Form.Group controlId="form-username" className="form-group">
-                    <Form.Label>Username:</Form.Label>
+                    <Form.Label>Username:</Form.Label><br></br>
                     <Form.Control
                       type="text"
                       value={Username}
                       onChange={e => setUsername(e.target.value)}
                       placeholder="Enter a username"
+                      className='text-box'
                       required />
                     {values.usernameErr && <p>{values.usernameErr}</p>}
                   </Form.Group>
 
                   <Form.Group controlId="form-password" className="form-group">
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>Password:</Form.Label><br></br>
                     <Form.Control
                       type="password"
                       value={Password}
                       onChange={e => setPassword(e.target.value)}
-                      placeholder="Password must be at least 5 characters"
+                      placeholder="At least 5 characters"
                       minLength="5"
+                      className='text-box'
                       required />
                     {values.passwordErr && <p>{values.passwordErr}</p>}
                   </Form.Group>
 
                   <Form.Group controlId="form-email" className="form-group">
-                    <Form.Label>Email:</Form.Label>
+                    <Form.Label>Email:</Form.Label><br></br>
                     <Form.Control
                       type="email"
                       value={Email}
+                      className='text-box'
+                      placeholder='Enter your email'
                       onChange={e => setEmail(e.target.value)}
                       required />
                     {values.emailErr && <p>{values.emailErr}</p>}
                   </Form.Group>
 
                   <Form.Group controlId="form-bday" className="form-group">
-                    <Form.Label>Date of Birth {"(mm/dd/yyyy)"}:</Form.Label>
+                    <Form.Label>Date of Birth {"(mm/dd/yyyy)"}:</Form.Label><br></br>
                     <Form.Control
                       type="birthday"
                       value={Birthday}
+                      className='text-box'
                       placeholder="optional"
                       onChange={e => setBirthday(e.target.value)}
                     />
-                  </Form.Group>
+                  </Form.Group><br></br>
 
                   <Button varient="danger" type="submit" onClick={handleSubmit}>Submit</Button>
 

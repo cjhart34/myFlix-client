@@ -59,7 +59,7 @@ export class MovieView extends React.Component {
 
               <Button
                 variant='dark'
-                className='fav-button'
+                className='ml-3'
                 size='md'
                 onClick={() => this.addFavorite(movie)}
               >
@@ -67,7 +67,7 @@ export class MovieView extends React.Component {
               </Button>
             </Card.Text>
 
-            <button onClick={() => { onBackClick(null); }}>Back</button>
+            <button className='ml-3' onClick={() => { onBackClick(null); }}>Back</button>
           </Card.Body>
         </Card>
       </Container>

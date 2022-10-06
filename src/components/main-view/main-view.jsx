@@ -72,7 +72,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { movies, user, director, Director, genre, genres } = this.state;
+    let { movies, user } = this.state;
     let localUser = localStorage.getItem('user');
 
     return (
@@ -112,7 +112,7 @@ export class MainView extends React.Component {
               </Col>
             }} />
 
-            <Route path={`/users/${user}`} render={({ match, history }) => {
+            <Route path={`/users/${user}`} render={({ history }) => {
               if (!user) return <Redirect to='/' />
               return <Col md={10}>
                 <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />

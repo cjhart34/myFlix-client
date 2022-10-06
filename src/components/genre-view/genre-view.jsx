@@ -31,7 +31,7 @@ export class GenreView extends React.Component {
             </Card.Body>
           </Card>
 
-          <Button variant='primary' onClick={() => { onBackClick(); }}>Back</Button>
+          <Button className='ml-3' variant='primary' onClick={() => { onBackClick(); }}>Back</Button>
 
         </Container>
       </Router>

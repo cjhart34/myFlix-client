@@ -13,8 +13,8 @@ export class DirectorView extends React.Component {
 
     return (
       <Router>
-        <Container className="my-3">
-          <Card className="my-3">
+        <Container>
+          <Card>
             <Card.Body>
 
               <Card.Title>Director</Card.Title>
@@ -32,7 +32,7 @@ export class DirectorView extends React.Component {
             </Card.Body>
           </Card>
 
-          <Button variant="primary" onClick={() => { onBackClick(); }}>Back</Button>
+          <Button className='ml-3' variant="primary" onClick={() => { onBackClick(); }}>Back</Button>
         </Container>
       </Router>
     );

@@ -55,35 +55,36 @@ export function LoginView(props) {
 
   return (
     <Router>
-      <Container className="py-5 login-container">
+      <Container className='py-5 login-container'>
         <Row>
           <Col>
             <Card>
               <Card.Body>
-                <Card.Title className="text-center">Welcome to myFlix!</Card.Title>
+                <Card.Title className='text-center'>Welcome back to MyFlix!</Card.Title>
+                <br></br>
 
                 <Form>
-                  <Form.Group className="form-group">
-                    <Form.Label>Username:</Form.Label>
+                  <Form.Group className='form-group'>
+                    <Form.Label>Username:</Form.Label><br></br>
                     <Form.Control
-                      type="text"
+                      type='text'
                       onChange={e => setUsername(e.target.value)}
-                      placeholder="Enter Username"
-                      required minLength="3" />
+                      placeholder='Enter Username'
+                      required minLength='3' />
                     {usernameErr && (<p>{usernameErr}</p>)}
                   </Form.Group>
 
-                  <Form.Group className="form-group">
-                    <Form.Label>Password:</Form.Label>
+                  <Form.Group className='form-group'>
+                    <Form.Label>Password:</Form.Label><br></br>
                     <Form.Control
-                      type="password"
+                      type='password'
                       onChange={e => setPassword(e.target.value)}
-                      placeholder="Password must be at least 6 characters"
-                      required minLength="6" />
+                      placeholder='Enter password'
+                      required minLength='5' />
                     {passwordErr && (<p>{passwordErr}</p>)}
-                  </Form.Group>
+                  </Form.Group><br></br>
 
-                  <Button variant="primary" type="submit" onClick={handleSubmit}>
+                  <Button className='ml-3' variant='primary' type='submit' onClick={handleSubmit}>
                     Sign in
                   </Button>
                 </Form>
