@@ -10,10 +10,10 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
+      Username: this.state,
+      Password: this.state,
+      Email: this.state,
+      Birthday: this.state,
       FavoriteMovies: [],
     };
   }
@@ -32,6 +32,11 @@ export class ProfileView extends React.Component {
     window.open('/', '_self');
   }
 
+  formatDate(date) {
+    if (date) date = date.substring(0, 10);
+    return date;
+  }
+
   getUser = (token) => {
     const Username = localStorage.getItem('user');
     axios
@@ -43,7 +48,7 @@ export class ProfileView extends React.Component {
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          Birthday: this.formatDate(response.data.Birthday),
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -64,7 +69,7 @@ export class ProfileView extends React.Component {
           Username: this.state.Username,
           Password: this.state.Password,
           Email: this.state.Email,
-          Birthday: this.state.Birthday,
+          Birthday: this.state.Birthday
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -75,7 +80,7 @@ export class ProfileView extends React.Component {
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          Birthday: response.data.Birthday
         });
 
         localStorage.setItem('user', this.state.Username);
@@ -178,7 +183,7 @@ export class ProfileView extends React.Component {
     this.setState({
       Birthday: value,
     });
-    this.Birthday = value;
+    // this.Birthday = value;
   }
 
   render() {
@@ -270,7 +275,7 @@ export class ProfileView extends React.Component {
             </Row>
             <br></br>
 
-            <Row class='movies-center'>
+            <Row className='movies-center'>
               {FavoriteMovies.map((movie) => {
                 return (
                   <div key={movie._id}>

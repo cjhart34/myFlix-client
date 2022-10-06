@@ -62,14 +62,14 @@ export class MainView extends React.Component {
       });
   }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-    window.open('/', '_self');
-  }
+  // onLoggedOut() {
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('user');
+  //   this.setState({
+  //     user: null
+  //   });
+  //   window.open('/', '_self');
+  // }
 
   render() {
     let { movies, user } = this.state;
