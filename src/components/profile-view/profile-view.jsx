@@ -92,29 +92,6 @@ export class ProfileView extends React.Component {
       });
   };
 
-  // updateUser = () => {
-  //   let token = localStorage.getItem('token');
-  //   let user = localStorage.getItem("user");
-  //   axios.put(`https://cjhart34.herokuapp.com/users/${Username}`, {
-  //     Username: Username,
-  //     Email: email, //Email is a variable which holds the email
-  //     Birthday: birthday,
-  //     Password: password
-  //   },
-  //     {
-  //       headers: {
-  //         Authorization: 'Bearer ' + token
-  //       }
-  //     }).then((response) => {
-  //       alert('Your profile has been updated');
-  //       localStorage.setItem('user', response.data.Username),
-  //         console.log(response.data)
-  //     })
-  //     .catch(e => {
-  //       console.log('Error')
-  //     });
-  // }
-
   removeFavorite(movie) {
     const Username = localStorage.getItem('user');
     console.log(Username);
@@ -162,21 +139,21 @@ export class ProfileView extends React.Component {
     this.setState({
       Username: value,
     });
-    // this.Username = value;
+    this.Username = value;
   }
 
   setPassword(value) {
     this.setState({
       Password: value,
     });
-    this.Password = value;
+    // this.Password = value;
   }
 
   setEmail(value) {
     this.setState({
       Email: value,
     });
-    this.Email = value;
+    // this.Email = value;
   }
 
   setBirthday(value) {

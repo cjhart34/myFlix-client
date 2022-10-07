@@ -17,7 +17,8 @@ export function RegistrationView(props) {
   const [values, setValues] = useState({
     usernameErr: '',
     passwordErr: '',
-    emailErr: ''
+    emailErr: '',
+    birthdayErr: ''
   });
 
   //validate function
@@ -41,6 +42,10 @@ export function RegistrationView(props) {
       isReq = false;
     } else if (Email.indexOf('@') === -1) {
       setValues({ ...values, emailErr: 'Email is invalid' });
+      isReq = false;
+    }
+    if (!Birthday) {
+      setValues({ ...values, birthdayErr: 'Birthday is required' });
       isReq = false;
     }
 
@@ -123,13 +128,14 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group controlId="form-bday" className="form-group">
-                    <Form.Label>Date of Birth {"(mm/dd/yyyy)"}:</Form.Label><br></br>
+                    <Form.Label>Date of Birth</Form.Label><br></br>
                     <Form.Control
                       type="birthday"
                       value={Birthday}
                       className='text-box'
-                      placeholder="optional"
+                      placeholder="(yyyy/mm/dd)"
                       onChange={e => setBirthday(e.target.value)}
+                      required
                     />
                   </Form.Group><br></br>
 
@@ -149,6 +155,7 @@ RegistrationView.propTypes = {
   register: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired
   })
 };
