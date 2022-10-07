@@ -40967,7 +40967,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
         this.setState({
             Username: value
         });
-        this.Username = value;
+    // this.Username = value;
     }
     setPassword(value) {
         this.setState({

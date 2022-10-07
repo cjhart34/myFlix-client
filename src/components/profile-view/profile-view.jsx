@@ -162,7 +162,7 @@ export class ProfileView extends React.Component {
     this.setState({
       Username: value,
     });
-    this.Username = value;
+    // this.Username = value;
   }
 
   setPassword(value) {
