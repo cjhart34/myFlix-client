@@ -139,7 +139,7 @@ export class ProfileView extends React.Component {
     this.setState({
       Username: value,
     });
-    this.Username = value;
+    // this.Username = value;
   }
 
   setPassword(value) {
@@ -224,7 +224,7 @@ export class ProfileView extends React.Component {
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.Label>Birthday</Form.Label><br></br>
+                    <Form.Label>Birthday (yyyy/mm/dd)</Form.Label><br></br>
                     <Form.Control
                       type='full-date'
                       name='birthday'

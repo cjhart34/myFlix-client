@@ -40951,7 +40951,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
         this.setState({
             Username: value
         });
-        this.Username = value;
+    // this.Username = value;
     }
     setPassword(value) {
         this.setState({
@@ -41101,7 +41101,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                                        children: "Birthday"
+                                                        children: "Birthday (yyyy/mm/dd)"
                                                     }, void 0, false, {
                                                         fileName: "src/components/profile-view/profile-view.jsx",
                                                         lineNumber: 227,
@@ -41110,7 +41110,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                         fileName: "src/components/profile-view/profile-view.jsx",
                                                         lineNumber: 227,
-                                                        columnNumber: 54
+                                                        columnNumber: 67
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                                         type: "full-date",
