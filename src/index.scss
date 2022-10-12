@@ -21,9 +21,29 @@ html {
     width: 300px;
 }
 
+
+* {
+    -webkit-box-sizing: content-box !important;
+}
+
 .registration-card,
-.mb-3 {
+.mb-3,
+.profile-view,
+.top-elements,
+.your-profile {
     justify-content: center;
     text-align: center;
     padding: 15px;
+    padding-right: 45px;
+}
+
+.my-3,
+.registration-card,
+.registration-container,
+.profile-view,
+.top-elements,
+.your-profile,
+.profile-view {
+    -webkit-box-sizing: border-box !important;
+    padding-right: 45px;
 }

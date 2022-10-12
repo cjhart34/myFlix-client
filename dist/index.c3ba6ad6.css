@@ -46,10 +46,19 @@ html {
   width: 300px;
 }
 
-.registration-card, .mb-3 {
+* {
+  -webkit-box-sizing: content-box !important;
+}
+
+.registration-card, .mb-3, .profile-view, .top-elements, .your-profile {
   text-align: center;
   justify-content: center;
-  padding: 15px;
+  padding: 15px 45px 15px 15px;
+}
+
+.my-3, .registration-card, .registration-container, .profile-view, .top-elements, .your-profile, .profile-view {
+  padding-right: 45px;
+  -webkit-box-sizing: border-box !important;
 }
 
 /*# sourceMappingURL=index.c3ba6ad6.css.map */
