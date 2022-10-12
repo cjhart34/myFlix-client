@@ -32,16 +32,16 @@ export class MovieView extends React.Component {
 
     if (!movie) return <div></div>;
     return (
-      <Col
-        className='container p-3 justify-content-center'
-        md={9}
-        lg={7}
-        xl={6}
+      <Col style={{ textAlign: 'center', justifyContent: 'center' }}
+        className='p-3'
+        md={12}
+        lg={12}
+        xl={12}
       >
         <Row
           className='justify-content-start'
         >
-          <Col sm={6}>
+          <Col sm={12}>
             <img
               crossOrigin='anonymous'
               className='img'
@@ -49,7 +49,7 @@ export class MovieView extends React.Component {
               alt=' Movie Image'
             />
           </Col>
-          <Col sm={6}>
+          <Col sm={12}>
             <div className='mt-2'>
               <div className='title'>{movie.Title} </div>
 
@@ -87,7 +87,7 @@ export class MovieView extends React.Component {
                   variant='outline-primary'
                   onClick={() => this.addFavorite(movie)}
                 >
-                  Add to 🤍 Movies
+                  Add to ❤️ Movies
                 </Button>
               ) : (
                 <Button
@@ -95,7 +95,7 @@ export class MovieView extends React.Component {
                   variant='outline-primary'
                   onClick={() => handleFavorite(movie._id, 'add')}
                 >
-                  Added to your 🤍 Movies
+                  Added to your ❤️ Movies
                 </Button>
               )}
             </div>

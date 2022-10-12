@@ -1,13 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-
 import './profile-view.scss';
-
 import { MovieCard } from '../movie-card/movie-card';
-
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { setUser, updateUser } from '../../actions/actions';
 import { connect } from 'react-redux';
+
 export class ProfileView extends React.Component {
   constructor() {
     super();
@@ -146,18 +144,18 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { onBackClick, movies, handleFavorite } = this.props;
-    const { user, username } = this.state;
+    const { onBackClick, movies } = this.props;
+    // const { user, username } = this.state;
 
     const FavoriteMovies = movies.filter((m) => {
       return this.state.FavoriteMovies.includes(m._id);
     });
 
     return (
-      <Container className='profile-view'>
+      <Container className='profile-view' style={{ justifyContent: 'center', textAlign: 'center', width: '850px' }}>
         <div className='top-elements d-flex flex-row justify-content-end align-items-baseline'>
           <Button
-            className='backProfileButton'
+            style={{ justifyContent: 'center', textAlign: 'center' }}
             variant='danger'
             onClick={() => {
               onBackClick();
@@ -269,17 +267,16 @@ export class ProfileView extends React.Component {
         </Row>
 
         <div>
-          <h3 className='favorite-Movies-title'>My 🤍 Movies:</h3>
+          <h3 className='favorite-Movies-title'>My ❤️ Movies:</h3>
         </div>
 
-        <Row className='favoriteMovie-col'>
+        <Row className='favoriteMovie-col' style={{ justifyContent: 'center', padding: '10px' }}>
           {FavoriteMovies.map((movie) => (
-            <Col sm={6} md={4} lg={4} key={movie._id}>
+            <Col sm={4} md={4} lg={4} key={movie._id}>
               <div className='favoriteMoviediv'>
                 <MovieCard movie={movie} />
 
                 <Button
-                  className='my-4 ml-2'
                   variant='danger'
                   onClick={() => this.removeFavorite(movie)}
                 >
@@ -289,7 +286,7 @@ export class ProfileView extends React.Component {
             </Col>
           ))}
         </Row>
-      </Container>
+      </Container >
     );
   }
 }

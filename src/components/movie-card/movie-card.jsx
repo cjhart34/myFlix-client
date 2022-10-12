@@ -13,17 +13,17 @@ export class MovieCard extends React.Component {
       <Card className='movie-card'
         style={{ width: '13rem', margin: '15px', padding: '5px' }}
       >
-        <Card.Body>
+        <Card.Body style={{ textAlign: 'center' }}>
           <Link to={`/movies/${movie._id}`}>
             <Card.Img className='img' src={movie.ImagePath} style={{ height: '20rem' }} />
           </Link>
-          <Card.Title>{movie.Title}</Card.Title>
-          <Card.Text>{movie.Genre.Name}</Card.Text>
+          <Card.Title style={{ fontSize: '.96rem' }}>{movie.Title}</Card.Title>
+          <Card.Text style={{ fontSize: '.86rem' }}>{movie.Genre.Name}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
             <Button className='button'>Open</Button>
           </Link>
         </Card.Body>
-      </Card>
+      </Card >
     );
   }
 }
@@ -41,6 +41,5 @@ MovieCard.propTypes = {
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }),
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 };

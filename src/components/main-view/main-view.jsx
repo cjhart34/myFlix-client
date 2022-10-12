@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import './main-view.scss';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setMovies, setFilter } from '../../actions/actions';
+import PropTypes from 'prop-types';
 import { Col, Row, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -13,6 +14,7 @@ import { Menu } from '../navbar/navbar';
 import { DirectorView } from '../director-view/director-view'
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
+import MoviesList from '../movies-list/movies-list';
 
 
 export class MainView extends React.Component {
@@ -62,24 +64,23 @@ export class MainView extends React.Component {
       });
   }
 
-  // onLoggedOut() {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user');
-  //   this.setState({
-  //     user: null
-  //   });
-  //   window.open('/', '_self');
-  // }
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+    window.open('/', '_self');
+  }
 
   render() {
-    let { movies, user } = this.state;
-    let localUser = localStorage.getItem('user');
+    let { favoriteMovies, user, movies } = this.state;
+    // let { movies } = this.props;
 
     return (
 
       <Router>
         <Menu user={user} />
-
         <Container>
           <Row className='main-view justify-content-md-center'>
             <Route exact path='/' render={() => {
@@ -88,9 +89,10 @@ export class MainView extends React.Component {
               </Col>
 
               if (movies.length === 0) return <div className='main-view' />;
+              // return <MoviesList movies={movies} />
 
               return movies.map(m => (
-                <Col md={3} key={m._id}>
+                <Col md={3} key={m._id} style={{ color: 'black' }}>
                   <MovieCard
                     movie={m} />
                 </Col>
@@ -141,5 +143,8 @@ export class MainView extends React.Component {
     );
   }
 }
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
 
-export default MainView;
+export default connect(mapStateToProps, { setMovies, setFilter })(MainView);
