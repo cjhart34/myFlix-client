@@ -39826,7 +39826,11 @@ function LoginView(props) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                        className: "mt-4",
+                        style: {
+                            justifyContent: "center",
+                            textAlign: "center"
+                        },
+                        variant: "danger",
                         type: "submit",
                         onClick: handleSubmit1,
                         children: "Submit"
@@ -42162,22 +42166,6 @@ function RegistrationView(props) {
                                 }, void 0, true, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
                                     lineNumber: 94,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                        className: "ma-0 col-10 offset-1",
-                                        variant: "link",
-                                        children: "Already a member? Login"
-                                    }, void 0, false, {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 148,
-                                        columnNumber: 19
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 147,
                                     columnNumber: 17
                                 }, this)
                             ]

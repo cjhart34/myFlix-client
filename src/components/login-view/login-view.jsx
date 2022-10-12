@@ -85,7 +85,7 @@ export function LoginView(props) {
           />
         </Form.Group>
 
-        <Button className='mt-4' type='submit' onClick={handleSubmit}>
+        <Button style={{ justifyContent: 'center', textAlign: 'center' }} variant='danger' type='submit' onClick={handleSubmit}>
           Submit
         </Button>
       </Form>

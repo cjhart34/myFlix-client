@@ -144,11 +144,6 @@ export function RegistrationView(props) {
                   <Button variant='danger' type='submit' onClick={handleSubmit}>Register</Button>
 
                 </Form>
-                <Link to='/'>
-                  <Button className='ma-0 col-10 offset-1' variant='link'>
-                    Already a member? Login
-                  </Button>
-                </Link>
               </Card>
             </CardGroup>
           </Col>

@@ -46,4 +46,10 @@ html {
   width: 300px;
 }
 
+.registration-card, .mb-3 {
+  text-align: center;
+  justify-content: center;
+  padding: 15px;
+}
+
 /*# sourceMappingURL=index.c3ba6ad6.css.map */
