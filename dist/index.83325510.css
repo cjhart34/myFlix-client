@@ -1,0 +1,53 @@
+.ml-3 {
+  border: 5px inset;
+}
+
+.movies-center {
+  vertical-align: auto;
+}
+
+.my-3 {
+  float: top;
+  place-content: center;
+  display: flex;
+}
+
+.navbar {
+  background-color: #1ba098;
+  margin-bottom: 60px;
+  padding: 0;
+  position: sticky;
+}
+
+.me-auto {
+  font-weight: bold;
+  transform: translate(0, -27px);
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.text-light {
+  font-weight: bold;
+}
+
+
+
+
+
+html {
+  background-color: #f8f7f7;
+  font-size: 1.3rem;
+}
+
+.app-container {
+  color: #101311;
+  background-color: #fff;
+}
+
+.btn.btn-primary {
+  background-color: #047377;
+}
+
+/*# sourceMappingURL=index.83325510.css.map */

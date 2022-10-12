@@ -1,8 +1,8 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Button, Container, Card } from 'react-bootstrap';
-import './genre-view.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import './genre-view.scss';
+// import { BrowserRouter as Router } from 'react-router-dom';
 
 export class GenreView extends React.Component {
 
@@ -11,37 +11,32 @@ export class GenreView extends React.Component {
     const { genre, onBackClick } = this.props;
 
     return (
-      <Router>
-        <Container className='genre-view'>
-          <Card className='genre-card'>
-            <Card.Body>
-
-              <Card.Title>Genre</Card.Title>
-
-              <Card.Text>
-                <span className='label'>Name: </span>
-                <span className='value'>{genre?.Name}</span>
-              </Card.Text>
-
-              <Card.Text>
-                <span className='label'>Description: </span>
-                <span className='value'>{genre?.Description}</span>
-              </Card.Text>
-
-            </Card.Body>
-          </Card>
-
-          <Button className='ml-3' variant='primary' onClick={() => { onBackClick(); }}>Back</Button>
-
-        </Container>
-      </Router>
+      // <Router>
+      <Container>
+        <Card className='genre-view'>
+          <Card.Header className='genre-view-header'>Genre</Card.Header>
+          <Card.Body className='genre-view-title'>{genre.Name}</Card.Body>
+          <Card.Body>{genre.Description}</Card.Body>
+          <Card.Footer>
+            <Button
+              className='genre-view-button'
+              onClick={() => {
+                onBackClick();
+              }}
+            >
+              Back
+            </Button>
+          </Card.Footer>
+        </Card>
+      </Container>
+      // </Router>
     );
   }
 }
 
 GenreView.proptypes = {
-  genre: propTypes.shape({
-    Name: propTypes.string.isRequired,
-    Description: propTypes.string.isRequired,
+  Genre: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
   }).isRequired,
 };

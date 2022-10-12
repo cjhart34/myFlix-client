@@ -1,5 +1,17 @@
-* {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
-    background-color: #d3d3d3;
+.movie-card {
+    border: none;
+    box-shadow: #e0dbdb 0px 3px 8px;
+}
+
+.movie-card:hover {
+    transform: scale(1.02);
+    transition: ease-in-out 0.3s;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.img {
+    width: 300px;
 }

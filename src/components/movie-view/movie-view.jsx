@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Container } from 'react-bootstrap';
-import './movie-view.scss';
 import { Link } from 'react-router-dom';
+import { Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+// import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
@@ -28,49 +28,80 @@ export class MovieView extends React.Component {
   }
 
   render() {
-    const { movie, onBackClick } = this.props;
+    const { movie, onBackClick, isFavorite, handleFavorite } = this.props;
 
+    if (!movie) return <div></div>;
     return (
-      <Container className='my-3 movie-view'>
-        <Card>
-          <Card.Img
-            crossOrigin=''
-            src={movie.ImagePath} />
+      <Col
+        className='container p-3 justify-content-center'
+        md={9}
+        lg={7}
+        xl={6}
+      >
+        <Row
+          className='justify-content-start'
+        >
+          <Col sm={6}>
+            <img
+              crossOrigin='anonymous'
+              className='img'
+              src={movie.ImagePath}
+              alt=' Movie Image'
+            />
+          </Col>
+          <Col sm={6}>
+            <div className='mt-2'>
+              <div className='title'>{movie.Title} </div>
 
-          <Card.Body>
-            <Card.Title>{movie.Title}</Card.Title>
-            <Card.Text>
-              <div className='movie-description'>
-                <span className='label'>Description: </span><br />
-                <span className='value'>{movie.Description}</span>
+              <div className='mt-3'>
+                <span className='fw-bold'>Genre: </span>
+                <Link to={`/genres/${movie.Genre.Name}`}>
+                  <Button variant='outline-dark'>{movie.Genre.Name} </Button>
+                </Link>
               </div>
-            </Card.Text>
-            <Card.Text>
 
-              <div className='movie-genre'>
-                <span className='label'>Genre: </span>
-                <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
+              <div className='mt-2'>
+                <span className='fw-bold'>Director: </span>
+                <Link to={`/directors/${movie.Director.Name}`}>
+                  <Button variant='outline-dark'>{movie.Director.Name}</Button>
+                </Link>
               </div>
 
-              <div className='movie-director'>
-                <span className='label'>Director: </span>
-                <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
+              <div className='mt-2'>
+                <span className='fw-bold'>Description</span>
+                <span className='value'>: {movie.Description}</span>
               </div>
 
               <Button
-                variant='dark'
-                className='ml-3'
-                size='md'
-                onClick={() => this.addFavorite(movie)}
+                className='my-4'
+                variant='warning'
+                onClick={() => {
+                  onBackClick(null);
+                }}
               >
-                Add to Favorites
+                « Back
               </Button>
-            </Card.Text>
-
-            <button className='ml-3' onClick={() => { onBackClick(null); }}>Back</button>
-          </Card.Body>
-        </Card>
-      </Container>
+              {!isFavorite ? (
+                <Button
+                  className='my-4 ml-2'
+                  variant='outline-primary'
+                  onClick={() => this.addFavorite(movie)}
+                >
+                  Add to 🤍 Movies
+                </Button>
+              ) : (
+                <Button
+                  className='my-4 ml-2'
+                  variant='outline-primary'
+                  onClick={() => handleFavorite(movie._id, 'add')}
+                >
+                  Added to your 🤍 Movies
+                </Button>
+              )}
+            </div>
+          </Col>
+        </Row>
+      </Col>
     );
   }
 }
@@ -79,14 +110,14 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
+      Description: PropTypes.string.isRequired,
     }),
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }),
-    ImagePath: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
 };

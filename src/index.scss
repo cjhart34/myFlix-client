@@ -1,9 +1,22 @@
-$color: steelblue;
-
-.my-flix {
-    color: $color;
+html {
+    background-color: black;
+    font-size: 1.3rem;
 }
 
-img {
+.app-container {
+    background-color: lightgray;
+    color: black;
+}
+
+.btn.btn-primary {
+    background-color: red;
+}
+
+.btn.btn-primary:hover {
+    background-color: black;
+
+}
+
+.img {
     width: 300px;
 }

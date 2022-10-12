@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Col, Row, Form, Button, Card } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './login-view.scss';
+// import './login-view.scss';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   //Declare hook for each input error message
-  const [usernameErr, setUsernameErr] = useState('');
-  const [passwordErr, setPasswordErr] = useState('');
+  const [
+    // usernameErr, 
+    setUsernameErr] = useState('');
+  const [
+    // passwordErr, 
+    setPasswordErr] = useState('');
 
   // Validate user inputs
   const validate = () => {
@@ -43,60 +48,59 @@ export function LoginView(props) {
           Username: username,
           Password: password
         })
-        .then(response => {
+        .then((response) => {
           const data = response.data;
           props.onLoggedIn(data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log('no such user')
         });
     }
   };
 
   return (
-    <Router>
-      <Container className='py-5 login-container'>
-        <Row>
-          <Col>
-            <Card>
-              <Card.Body>
-                <Card.Title className='text-center'>Welcome back to MyFlix!</Card.Title>
-                <br></br>
+    <Card>
+      <Form>
+        <h2 className='mb-3 mx-auto mt-5'>Welcome to MyFlix!</h2>
+        <Form.Group className='mb-3 mx-auto mt-4' controlId='formUsername'>
+          <Form.Label>Username:</Form.Label>
+          <Form.Control
+            type='text'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder='Enter a username'
+          />
+        </Form.Group>
 
-                <Form>
-                  <Form.Group className='form-group'>
-                    <Form.Label>Username:</Form.Label><br></br>
-                    <Form.Control
-                      type='text'
-                      onChange={e => setUsername(e.target.value)}
-                      placeholder='Enter Username'
-                      required minLength='3' />
-                    {usernameErr && (<p>{usernameErr}</p>)}
-                  </Form.Group>
+        <Form.Group className='mb-3 mx-auto mt-4'>
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength='6'
+            placeholder='Enter a password'
+          />
+        </Form.Group>
 
-                  <Form.Group className='form-group'>
-                    <Form.Label>Password:</Form.Label><br></br>
-                    <Form.Control
-                      type='password'
-                      onChange={e => setPassword(e.target.value)}
-                      placeholder='Enter password'
-                      required minLength='5' />
-                    {passwordErr && (<p>{passwordErr}</p>)}
-                  </Form.Group><br></br>
-
-                  <Button className='ml-3' variant='primary' type='submit' onClick={handleSubmit}>
-                    Sign in
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </Router>
+        <Button className='mt-4' type='submit' onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Form>
+      <Link to='/register'>
+        <Button className='ma-0 col-10 offset-1' variant='link'>
+          Not Registered? Sign Up
+        </Button>
+      </Link>
+    </Card>
   );
-}
-
-LoginView.propTypes = {
-  onLoggedIn: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) =>
+    dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);

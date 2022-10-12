@@ -1,9 +1,9 @@
 import React from 'react';
-import './director-view.scss';
 // import { Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
-import propTypes from 'prop-types';
-import { BrowserRouter as Router } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import './director-view.scss';
 
 
 export class DirectorView extends React.Component {
@@ -12,35 +12,30 @@ export class DirectorView extends React.Component {
     const { director, onBackClick } = this.props;
 
     return (
-      <Router>
-        <Container>
-          <Card>
-            <Card.Body>
-
-              <Card.Title>Director</Card.Title>
-
-              <Card.Text>
-                <span className="label">Name: </span>
-                <span className="value">{director.Name}</span>
-              </Card.Text>
-
-              <Card.Text>
-                <span className="label">Description: </span>
-                <span className="value">{director.Description}</span>
-              </Card.Text>
-
-            </Card.Body>
-          </Card>
-
-          <Button className='ml-3' variant="primary" onClick={() => { onBackClick(); }}>Back</Button>
-        </Container>
-      </Router>
+      // <Router>
+      <Container>
+        <Card className='dir-view'>
+          <Card.Header className='dir-view-header'>Director</Card.Header>
+          <Card.Body className='dir-view-title'>{director.Name}</Card.Body>
+          <Card.Body>{director.Description}</Card.Body>
+          <Card.Footer>
+            <Button
+              className='dir-view-button'
+              onClick={() => {
+                onBackClick();
+              }}>
+              Back
+            </Button>
+          </Card.Footer>
+        </Card>
+      </Container>
+      // </Router>
     );
   }
 }
 DirectorView.propTypes = {
-  director: propTypes.shape({
-    Name: propTypes.string.isRequired,
-    Description: propTypes.string.isRequired,
+  Director: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
   }).isRequired,
 };
