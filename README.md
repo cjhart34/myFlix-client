@@ -8,3 +8,11 @@
 - Redux
 - Parcel
 - Axios
+- PropTypes
+
+## Features
+
+- Main View
+* Returns a list of ALL movies to the user (each listed item with an image, title, and description)
+* Sorting and filtering
+● Ability to select a movie for more details
