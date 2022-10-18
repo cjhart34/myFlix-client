@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import './favorite-card.scss';
 
 export function FavoriteCard(props) {
   const { movie, handleFavorite } = props;

@@ -152,11 +152,10 @@ export class ProfileView extends React.Component {
     });
 
     return (
-      <Container className='profile-view' style={{ justifyContent: 'center', textAlign: 'center', width: '850px' }}>
-        <div className='top-elements d-flex flex-row justify-content-end align-items-baseline'>
+      <Container className='profile-view registration-container' style={{ justifyContent: 'center', textAlign: 'center', width: '850px' }}>
+        <div>
           <Button
-            style={{ justifyContent: 'center', textAlign: 'center' }}
-            variant='danger'
+            style={{ justifyContent: 'center', textAlign: 'center', marginBottom: '50px' }}
             onClick={() => {
               onBackClick();
             }}
@@ -166,7 +165,7 @@ export class ProfileView extends React.Component {
         </div>
 
         <Row>
-          <Col>
+          <Col md={12}>
             <Card className='your-profile'>
               <Card.Body>
                 <Card.Title>
@@ -191,7 +190,7 @@ export class ProfileView extends React.Component {
                   </div>
                 </Card.Text>
                 <div className='delete-profile-button'>
-                  <Button variant='danger' onClick={() => this.onDeleteUser()}>
+                  <Button onClick={() => this.onDeleteUser()}>
                     Delete your account
                   </Button>
                 </div>
@@ -201,8 +200,8 @@ export class ProfileView extends React.Component {
         </Row>
 
         <Row>
-          <Col>
-            <Card className='update-profile'>
+          <Col md={12} style={{ justifyContent: 'center' }}>
+            <Card className='your-profile'>
               <Card.Body>
                 <Card.Title className='text-center'>
                   {' '}
@@ -253,10 +252,10 @@ export class ProfileView extends React.Component {
                       name='Birthday:'
                       onChange={(e) => this.setBirthday(e.target.value)}
                     />
-                  </Form.Group>
+                  </Form.Group><br></br>
 
                   <div className='update-profile-button'>
-                    <Button variant='danger' type='submit'>
+                    <Button type='submit'>
                       Update
                     </Button>
                   </div>
@@ -264,7 +263,7 @@ export class ProfileView extends React.Component {
               </Card.Body>
             </Card>
           </Col>
-        </Row>
+        </Row><br></br>
 
         <div>
           <h3 className='favorite-Movies-title'>My ❤️ Movies:</h3>
@@ -277,7 +276,6 @@ export class ProfileView extends React.Component {
                 <MovieCard movie={movie} />
 
                 <Button
-                  variant='danger'
                   onClick={() => this.removeFavorite(movie)}
                 >
                   Remove from Favorites

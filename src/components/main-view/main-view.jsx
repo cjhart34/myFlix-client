@@ -23,7 +23,7 @@ export class MainView extends React.Component {
     super();
     //Initial state is set to null
     this.state = {
-      movies: [],
+      // movies: [],
       user: null
     };
   }
@@ -55,9 +55,10 @@ export class MainView extends React.Component {
     })
       .then(response => {
         //Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
+        // this.setState({
+        // movies: response.data
+        // });
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -74,8 +75,10 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { favoriteMovies, user, movies } = this.state;
-    // let { movies } = this.props;
+    let { favoriteMovies, user,
+      // movies
+    } = this.state;
+    let { movies } = this.props;
 
     return (
 
@@ -89,14 +92,14 @@ export class MainView extends React.Component {
               </Col>
 
               if (movies.length === 0) return <div className='main-view' />;
-              // return <MoviesList movies={movies} />
+              return <MoviesList movies={movies} />
 
-              return movies.map(m => (
-                <Col md={3} key={m._id} style={{ color: 'black' }}>
-                  <MovieCard
-                    movie={m} />
-                </Col>
-              ))
+              // return movies.map(m => (
+              //   <Col md={3} key={m._id} style={{ color: 'black' }}>
+              //     <MovieCard
+              //       movie={m} />
+              //   </Col>
+              // ))
             }} />
 
             <Route path='/register' render={() => {
