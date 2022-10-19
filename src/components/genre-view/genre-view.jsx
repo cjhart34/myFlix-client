@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Container, Card } from 'react-bootstrap';
 // import './genre-view.scss';
-// import { BrowserRouter as Router } from 'react-router-dom';
 
 export class GenreView extends React.Component {
 
@@ -11,7 +10,6 @@ export class GenreView extends React.Component {
     const { genre, onBackClick } = this.props;
 
     return (
-      // <Router>
       <Container>
         <Card className='genre-view'>
           <Card.Header className='genre-view-header'>Genre</Card.Header>
@@ -29,7 +27,6 @@ export class GenreView extends React.Component {
           </Card.Footer>
         </Card>
       </Container>
-      // </Router>
     );
   }
 }

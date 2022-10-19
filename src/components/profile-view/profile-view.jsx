@@ -145,8 +145,6 @@ export class ProfileView extends React.Component {
 
   render() {
     const { onBackClick, movies } = this.props;
-    // const { user, username } = this.state;
-
     const FavoriteMovies = movies.filter((m) => {
       return this.state.FavoriteMovies.includes(m._id);
     });
@@ -160,7 +158,7 @@ export class ProfileView extends React.Component {
               onBackClick();
             }}
           >
-            Back
+            « Back
           </Button>
         </div>
 
@@ -254,6 +252,8 @@ export class ProfileView extends React.Component {
                     />
                   </Form.Group><br></br>
 
+                  <p>Please fill out all fields.</p>
+
                   <div className='update-profile-button'>
                     <Button type='submit'>
                       Update
@@ -269,13 +269,14 @@ export class ProfileView extends React.Component {
           <h3 className='favorite-Movies-title'>My ❤️ Movies:</h3>
         </div>
 
-        <Row className='favoriteMovie-col' style={{ justifyContent: 'center', padding: '10px' }}>
+        <Row className='favoriteMovie-col' style={{ justifyContent: 'center', textAlign: 'center', padding: '10px' }}>
           {FavoriteMovies.map((movie) => (
             <Col sm={4} md={4} lg={4} key={movie._id}>
               <div className='favoriteMoviediv'>
                 <MovieCard movie={movie} />
 
                 <Button
+                  variant='warning'
                   onClick={() => this.removeFavorite(movie)}
                 >
                   Remove from Favorites

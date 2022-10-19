@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Container, Col, Row, Form, Button, Card, CardGroup } from 'react-bootstrap';
 // import './registration-view.scss';
 import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
-// import { MainView } from '../main-view/main-view'
-import { Link } from 'react-router-dom';
-import { LoginView } from '../login-view/login-view';
 
 export function RegistrationView(props) {
   const [Username, setUsername] = useState('');
@@ -55,7 +51,6 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(Username, Password, Email, Birthday);
     //assign variable isReq to validate function
     const isReq = validate();
     if (isReq) {
@@ -65,7 +60,6 @@ export function RegistrationView(props) {
         Email: Email,
         Birthday: Birthday
       }, {
-        // headers: { Authorization: `Bearer ${token}` }
       })
         .then(response => {
           const data = response.data;
@@ -74,7 +68,6 @@ export function RegistrationView(props) {
           window.open('/', '_self');
         })
         .catch((response) => {
-          // console.error(response.data);
           console.error(response);
           alert('unable to register user')
         });
@@ -141,7 +134,7 @@ export function RegistrationView(props) {
                     />
                   </Form.Group><br></br>
 
-                  <Button variant='danger' type='submit' onClick={handleSubmit}>Register</Button>
+                  <Button type='submit' onClick={handleSubmit}>Register</Button>
 
                 </Form>
               </Card>
@@ -152,12 +145,3 @@ export function RegistrationView(props) {
     </Router>
   );
 }
-
-// RegistrationView.propTypes = {
-//   register: PropTypes.shape({
-//     Username: PropTypes.string.isRequired,
-//     Password: PropTypes.string.isRequired,
-//     Email: PropTypes.string.isRequired,
-//     Birthday: PropTypes.string.isRequired
-//   })
-// };

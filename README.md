@@ -1,5 +1,5 @@
-#  <img src=./src/components/navbar/images/myflix.png width=300>
-# myFlix-client <br>
+#  <img src=./src/components/navbar/images/myflix.png width=600>
+# myFlix-client
  I will be using React as a framework to build the client-side for an application called myFlix, based on its existing server-side code (REST API and MongoDB). It is a single-page application and uses state routing to navigate between views.
 
 ## Dependencies
@@ -34,10 +34,8 @@
 #### Director View
 * Returns data about a director (name and description)
 
-#### Profilte View
+#### Profile View
 * Allows users to update their user info (username, password, email, birthday)
 * Allows existing users to delete their account
 * Displays user's favorite movies
 * Allows users to remove a movie from their list of favorites
-
-:

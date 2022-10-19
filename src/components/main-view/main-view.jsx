@@ -3,11 +3,9 @@ import axios from 'axios';
 import './main-view.scss';
 import { connect } from 'react-redux';
 import { setMovies, setFilter } from '../../actions/actions';
-import PropTypes from 'prop-types';
 import { Col, Row, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Menu } from '../navbar/navbar';
@@ -23,7 +21,6 @@ export class MainView extends React.Component {
     super();
     //Initial state is set to null
     this.state = {
-      // movies: [],
       user: null
     };
   }
@@ -54,10 +51,6 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        //Assign the result to the state
-        // this.setState({
-        // movies: response.data
-        // });
         this.props.setMovies(response.data);
       })
       .catch(function (error) {
@@ -75,9 +68,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { favoriteMovies, user,
-      // movies
-    } = this.state;
+    let { user } = this.state;
     let { movies } = this.props;
 
     return (
@@ -92,14 +83,8 @@ export class MainView extends React.Component {
               </Col>
 
               if (movies.length === 0) return <div className='main-view' />;
+              console.log(movies);
               return <MoviesList movies={movies} />
-
-              // return movies.map(m => (
-              //   <Col md={3} key={m._id} style={{ color: 'black' }}>
-              //     <MovieCard
-              //       movie={m} />
-              //   </Col>
-              // ))
             }} />
 
             <Route path='/register' render={() => {

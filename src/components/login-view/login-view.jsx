@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Col, Row, Form, Button, Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import './login-view.scss';
@@ -60,7 +59,7 @@ export function LoginView(props) {
 
   return (
     <Card>
-      <Form>
+      <Form style={{ textAlign: 'center' }}>
         <h2 className='mb-3 mx-auto mt-5'>Welcome to MyFlix!</h2>
         <Form.Group className='mb-3 mx-auto mt-4' controlId='formUsername'>
           <Form.Label>Username:</Form.Label>
@@ -85,7 +84,7 @@ export function LoginView(props) {
           />
         </Form.Group>
 
-        <Button style={{ justifyContent: 'center', textAlign: 'center' }} variant='danger' type='submit' onClick={handleSubmit}>
+        <Button style={{ justifyContent: 'center', textAlign: 'center' }} type='submit' onClick={handleSubmit}>
           Submit
         </Button>
       </Form>

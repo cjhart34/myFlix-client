@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import './director-view.scss';
 
 
@@ -11,7 +10,6 @@ export class DirectorView extends React.Component {
     const { director, onBackClick } = this.props;
 
     return (
-      // <Router>
       <Container>
         <Card className='dir-view'>
           <Card.Header className='dir-view-header'>Director</Card.Header>
@@ -28,7 +26,6 @@ export class DirectorView extends React.Component {
           </Card.Footer>
         </Card>
       </Container>
-      // </Router>
     );
   }
 }
