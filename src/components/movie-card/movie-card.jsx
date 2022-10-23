@@ -9,7 +9,10 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
     return (
       <Card className='movie-card'
-        style={{ width: '13rem', margin: '15px', padding: '5px' }}
+        style={{
+          width: '15rem',
+          marginBottom: '15px'
+        }}
       >
         <Card.Body style={{ textAlign: 'center' }}>
           <Link to={`/movies/${movie._id}`}>

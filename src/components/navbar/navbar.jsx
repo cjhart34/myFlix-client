@@ -22,7 +22,7 @@ export function Menu({ user }) {
   };
 
   return (
-    <Navbar style={{ width: '100%' }} className='navbar' expand='lg'>
+    <Navbar style={{ width: '100%', padding: '20px' }} className='navbar' expand='lg'>
       <Navbar.Brand className='navbar-logo' href='/'>
         <img src={logo} alt='logo' className='logo' />
       </Navbar.Brand>
