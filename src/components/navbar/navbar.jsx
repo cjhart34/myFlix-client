@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './images/myflix.png';
-import { Menu, Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 
 import './navbar.scss';
 
