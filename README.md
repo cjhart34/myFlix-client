@@ -50,4 +50,4 @@
 ## Links
 Live page link: [https://cjhart34.netlify.app](https://cjhart34.netlify.app)
 
-Github repository link: [https://github.com/cjhart34/myFlix-client](https://github.com/cjhart34/myFlix-client)
+Github repository link: [https://github.com/cjhart34/myFlix-client/tree/styles](https://github.com/cjhart34/myFlix-client/tree/styles)
