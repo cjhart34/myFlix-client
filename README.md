@@ -1,6 +1,13 @@
-#  <img src=./src/components/navbar/images/myflix.png width=600>
+<p align="center>
+
+<img src=./src/components/navbar/images/myflix.png width=600>
+
+ </p>
+
 # myFlix-client
  I will be using React as a framework to build the client-side for an application called myFlix, based on its existing server-side code (REST API and MongoDB). It is a single-page application and uses state routing to navigate between views.
+
+---
 
 ## Dependencies
 - Node.js
@@ -10,6 +17,9 @@
 - Parcel
 - Axios
 - PropTypes
+- Netifly
+
+---
 
 ## Features
 
@@ -39,3 +49,9 @@
 * Allows existing users to delete their account
 * Displays user's favorite movies
 * Allows users to remove a movie from their list of favorites
+
+---
+
+## Links
+Live page link: [https://cjhart34.netlify.app](https://cjhart34.netlify.app) <br>
+Github repository link: [https://github.com/cjhart34/myFlix-client](https://github.com/cjhart34/myFlix-client)
