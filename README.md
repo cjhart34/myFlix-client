@@ -16,6 +16,8 @@
 
 ---
 
+<src=./img/myflix2.png>
+
 ## Features
 
 #### Main View

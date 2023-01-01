@@ -1,40 +1,65 @@
 
 
-
-
-img {
-  max-width: 230px;
-  max-height: 450px;
-  height: auto;
-  margin: 10px auto;
+.navbar {
+  color: #000;
+  background-color: #746ae9;
+  margin-bottom: 30px;
+  padding: 0;
+  position: sticky;
 }
 
-.movie-card {
-  border: none;
-  box-shadow: 0 3px 8px #e0dbdb;
+.nav-link {
+  color: #000;
 }
 
-.movie-card:hover {
-  transition: all .3s ease-in-out;
-  transform: scale(1.02);
+.logo {
+  width: 350px;
 }
 
-.card-body {
-  text-align: center;
+.ml-auto:hover {
+  color: #000;
 }
+
+
+
+
 
 html {
-  background-color: #f8f7f7;
+  background-color: #d3d3d3;
   font-size: 1.3rem;
 }
 
 .app-container {
-  color: #101311;
-  background-color: #fff;
+  color: #000;
+  background-color: #d3d3d3;
 }
 
 .btn.btn-primary {
-  background-color: #047377;
+  background-color: red;
+}
+
+.btn.btn-primary:hover {
+  background-color: #000;
+}
+
+.movie-card {
+  padding-bottom: "15px";
+  margin-bottom: "15px";
+}
+
+* {
+  -webkit-box-sizing: content-box !important;
+}
+
+.registration-card, .mb-3, .profile-view, .top-elements, .your-profile {
+  text-align: center;
+  justify-content: center;
+  padding: 15px 45px 15px 15px;
+}
+
+.my-3, .registration-card, .registration-container, .profile-view, .top-elements, .your-profile, .profile-view {
+  padding-right: 45px;
+  -webkit-box-sizing: border-box !important;
 }
 
 /*# sourceMappingURL=index.2b25e0b4.css.map */
