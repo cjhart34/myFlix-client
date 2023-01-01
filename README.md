@@ -16,7 +16,7 @@
 
 ---
 
-<src=./img/myflix2.png>
+<img src=./img/myflix2.png>
 
 ## Features
 
