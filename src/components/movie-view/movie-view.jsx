@@ -117,7 +117,7 @@ MovieView.propTypes = {
     }),
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
+      Bio: PropTypes.string.isRequired
     }),
   }).isRequired,
 };
