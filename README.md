@@ -5,6 +5,7 @@
 ---
 
 ## Dependencies
+- JavaScript
 - Node.js
 - Bootstrap
 - React
@@ -13,7 +14,7 @@
 - Axios
 - PropTypes
 - Netifly
-
+- Parcel
 ---
 
 <img src=./img/myflix2.png>
